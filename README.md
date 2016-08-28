@@ -78,7 +78,17 @@ Here is the portion of the plist which specifically deals with the "is the netwo
 
 ### Installation ###
 
-Unless otherwise noted, plists should be placed in the "$HOME/Library/LaunchAgents" (where "$HOME" represents the path to your home directory, for example: **/Users/sjobs/Library/LaunchAgents/**
+Unless otherwise noted, plists should be placed in the "$HOME/Library/LaunchAgents" (where "$HOME" represents the path to your home directory, for example: **/Users/sjobs/Library/LaunchAgents/**. It is advised not to modify any of the System plists.
+
+Plists can also be placed into the following folders depending on usage (adapted from [http://launchd.info/](http://launchhd.info/_)):
+
+| Type           | Location                        | Run on behalf of                                   |
+|----------------|---------------------------------|----------------------------------------------------|
+| User Agents    | `~/Library/LaunchAgents`        | Currently logged in user                           |
+| Global Agents  | `/Library/LaunchAgents`         | Currently logged in user                           |
+| Global Daemons | `/Library/LaunchDaemons`        | root or the user specified with the key `UserName` |
+| System Agents  | `/System/Library/LaunchAgents`  | Currently logged in user                           |
+| System Daemons | `/System/Library/LaunchDaemons` | root or the user specified with the key `UserName` |
 
 ### How to start a new launchd plist  
 
@@ -119,3 +129,6 @@ Or delete it:
 
 		rm -i com.tjluoma.keeprunning.mail.plist
 
+### Resources
+http://launchd.info/
+https://developer.apple.com/legacy/library/documentation/Darwin/Reference/ManPages/man5/launchd.plist.5.html#//apple_ref/doc/man/5/launchd.plist
